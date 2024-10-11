@@ -247,6 +247,9 @@ pub struct Recurring {
     /// `metered` aggregates the total usage based on usage records.
     /// Defaults to `licensed`.
     pub usage_type: RecurringUsageType,
+
+    /// The meter tracking the usage of a metered price
+    pub meter: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
@@ -670,6 +673,9 @@ pub struct CreatePriceRecurring {
     /// Defaults to `licensed`.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub usage_type: Option<CreatePriceRecurringUsageType>,
+
+    /// The meter tracking the usage of a metered price
+    pub meter: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
